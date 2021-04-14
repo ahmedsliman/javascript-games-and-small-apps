@@ -6,15 +6,11 @@ const tweetQuoteBtn = document.getElementById('twitter');
 const loader = document.querySelector('.loader');
 
 // Get Quote from API
-async function getQuote() {
-    loading();
+async function getQuoteFromAPI() {
+    showSpinner();
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     const apiUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
     try {
-        // const response = await fetch(proxyUrl + apiUrl, {
-        //     headers: {"X-Requested-With": "XMLHttpRequest"}
-        // });
-
         const response = await fetch(proxyUrl + apiUrl);
 
         const data = await response.json();
@@ -26,7 +22,7 @@ async function getQuote() {
         quoteText.innerText = data.quoteText;
         quoteAuthor.innerText = data.quoteAuthor ?? "Unknown";
         // Stop loader, show quote container
-        done();
+        removeSpinner();
     } catch (error) {
         //getQuote();
         console.log('Ooops, and error in fetching!, ', error);
@@ -40,20 +36,20 @@ function tweetQuote() {
     window.open(twitterUrl, '_blank');
 }
 
-function loading() {
+function showSpinner() {
     loader.hidden = false;
     quoteContainer.hidden = true;
 }
 
-function done() {
+function removeSpinner() {
     if (!loader.hidden) {
         quoteContainer.hidden = false;
         loader.hidden = true;
     }
 }
 
-newQuoteBtn.addEventListener('click', getQuote);
+newQuoteBtn.addEventListener('click', getQuoteFromAPI);
 tweetQuoteBtn.addEventListener('click', tweetQuote);
 
 // On Load
-getQuote();
+getQuoteFromAPI();
