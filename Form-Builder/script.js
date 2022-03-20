@@ -1,6 +1,6 @@
 'use strict';
 
-const myName = 'Ahmed';
+const myName = 'Ahmed Soliman';
 
 function first() {
   const age = 36;
