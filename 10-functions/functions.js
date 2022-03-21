@@ -22,4 +22,4 @@ const str2 = (str, fn) => {
 
 const greet = greeting => name => console.log(`${greeting} ${name}`);
 
-greet('Hi')('Soly!');
+// greet('Hi')('Soly!');
