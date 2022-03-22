@@ -70,3 +70,11 @@ function func1(phrase) {
 
 let func1User1 = func1.bind(user1, 'Hey');
 func1User1();
+
+
+// Parial application
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVat = addTax.bindaddTax(null, 0.23);
+console.log(addVat(100));
