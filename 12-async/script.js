@@ -41,11 +41,11 @@ const getTodos = (resource, callback) => {
 //     }
 // });
 
-getTodos('todos.json', (err, data) => {
+getTodos('todos/todos.json', (err, data) => {
     console.log(data);
-    getTodos('todos2.json', (err, data) => {
+    getTodos('todos/todos2.json', (err, data) => {
         console.log(data);
-        getTodos('todos3.json', (err, data) => {
+        getTodos('todos/todos3.json', (err, data) => {
             console.log(data);
         });
     });
